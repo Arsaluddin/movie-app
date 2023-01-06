@@ -5,6 +5,7 @@ import MovieList from './components/MovieList';
 import SearchBox from './components/SearchBox';
 import MovieListHeading from './components/MovieListHeading';
 import AddFav from './components/AddFav';
+import RemFav from './components/RemFav';
 
 const  App = () => {
 
@@ -28,6 +29,15 @@ const  App = () => {
           setFavourites(newFavouriteList);
     }
 
+    const removeFavouriteMovie = (movie) => {
+        const newFavouriteList = favourites.filter(
+          (favourite) => favourite.imdbID !== movie.imdbID
+        );
+
+        setFavourites(newFavouriteList);
+    }
+
+
     useEffect(() => {
       getMovieRequest(searchValue);
     
@@ -50,9 +60,14 @@ const  App = () => {
       <div className='row-head'>
           <MovieListHeading heading='Favourites'/>
       </div>
+      
       <div className='row'>
-          <MovieList movies={favourites} favouriteComponent={AddFav}/>  
-      </div>
+				<MovieList
+					movies={favourites}
+					handleFavouritesClick={removeFavouriteMovie}
+					favouriteComponent={RemFav}
+				/>
+			</div>
       
     </div>
   );
