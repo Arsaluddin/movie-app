@@ -1,0 +1,26 @@
+/* SearchBox.css */
+.search-input {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .form-control {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .form-control::placeholder {
+    color: #aaa;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
